@@ -8,61 +8,66 @@
 
 </head>
 <body>
-    <div id="enterBackground">
-        <label class="glitch" id="clickToEnter">/ click to enter /</label>
-    </div>
-
-    <div class="wrapper">
-        <input id="volumeSlider" type="range" min="0" max="0.1" step="0.00001" value="0.05">
-    </div>
-    
-    
-    <div id="linksContainer">
-        <a href="https://discord.com/users/359783735538876417" target="_blank">
-            <img src="/assets/discordIcon.png" alt="Discord" class="platform-icon" draggable="false">
-        </a>
-        <a href="https://ItsRolo.t.me" target="_blank">
-            <img src="/assets/telegramIcon.png" alt="Telegram" class="platform-icon" draggable="false">
-        </a>
-        <a href="https://roloware.xyz" target="_blank">
-            <img src="/assets/rolowareIcon.png" alt="roloware.xyz" class="platform-icon" draggable="false">
-        </a>
-    </div>
-
-    <div id="background">
-        <video loop muted src="assets/a2z.mp4" id="backgroundVideo"></video>
-        <!--
-        <div id="leftSidebar">
-            <label id="name">R<br>o<br>l<br>o<br></label>
+    <div id="content">
+        <div id="enterBackground">
+            <label class="glitch" id="clickToEnter">/ click to enter /</label>
         </div>
-        -->
+    
+        <div class="wrapper">
+            <input id="volumeSlider" type="range" min="0" max="0.1" step="0.00001" value="0.05">
+        </div>
         
-        <div id="pfpContainer">
-            <img id="pfp" src="/assets/pfp.png">
+        
+        <div id="linksContainer">
+            <a href="https://discord.com/users/359783735538876417" target="_blank">
+                <img src="/assets/discordIcon.png" alt="Discord" class="platform-icon" draggable="false">
+            </a>
+            <a href="https://ItsRolo.t.me" target="_blank">
+                <img src="/assets/telegramIcon.png" alt="Telegram" class="platform-icon" draggable="false">
+            </a>
+            <a href="https://roloware.xyz" target="_blank">
+                <img src="/assets/rolowareIcon.png" alt="roloware.xyz" class="platform-icon" draggable="false">
+            </a>
         </div>
-
-        <div id="typingContainer">
-            <span id="typingText"></span>
-            <span id="cursor">|</span>
-        </div>
-
-    </div>
     
-    <!-- 
-    <div id="rightSidebar">
-        <a href="https://roloware.xyz" id="item1" class="sidebarItem">
-            <label id="itemLabel1" class="itemLabel">rolo<br>ware</label>
-        </a>
-        <a  id="item2" class="sidebarItem">
-            <label class="itemLabel">soon</label>
-        </a>
-        <a  id="item3" class="sidebarItem">
-            <label class="itemLabel">soon</label>
-        </a>
+        <div id="background">
+            <video loop muted src="assets/a2z.mp4" id="backgroundVideo"></video>
+            <!--
+            <div id="leftSidebar">
+                <label id="name">R<br>o<br>l<br>o<br></label>
+            </div>
+            -->
+            
+            <div id="pfpContainer">
+                <img id="pfp" src="/assets/pfp.png">
+            </div>
+    
+            <div id="typingContainer">
+                <span id="typingText"></span>
+                <span id="cursor">|</span>
+            </div>
+    
+        </div>
+        
+        <!-- 
+        <div id="rightSidebar">
+            <a href="https://roloware.xyz" id="item1" class="sidebarItem">
+                <label id="itemLabel1" class="itemLabel">rolo<br>ware</label>
+            </a>
+            <a  id="item2" class="sidebarItem">
+                <label class="itemLabel">soon</label>
+            </a>
+            <a  id="item3" class="sidebarItem">
+                <label class="itemLabel">soon</label>
+            </a>
+        </div>
+    
+        <div id="darkmode"></div>
+        -->
     </div>
-
-    <div id="darkmode"></div>
-    -->
+    <div id="smallScreenMessage">
+        Please visit on a larger device/screen.
+    </div>
     
     <script src="/index.js"></script>
 </body>

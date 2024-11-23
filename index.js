@@ -7,7 +7,7 @@ var audio = new Audio("/assets/a2z.mp3");
 
 let audioToggle = true;
 
-audioReactivity = true
+audioReactivity = false;
 
 audio.autoplay = false; // Ensure autoplay is off
 audio.volume = 0.05; // Set the volume
@@ -50,7 +50,7 @@ function updateBackgroundVideoSize() {
         let average = dataArray.reduce((a, b) => a + b) / bufferLength;
 
         // Scale the size of the video based on the average frequency
-        let scale = 1 + (average / 2000); // Adjust this to your liking
+        let scale = 1 + (average / 2048); // Adjust this to your liking
         pfp.style.transform = `scale(${scale})`;
         pfp.style.transform = `scale(${scale})`;
 
@@ -62,7 +62,9 @@ function updateBackgroundVideoSize() {
 const phrases = [
     "Hey, i'm Rolo.",
     "\"Roloware Still UD\" - NLE Choppa",
-    "Imagine not making your own link page"
+    "Imagine not making your own link page",
+    "real/one",
+    "I use Arch btw"
 ];
 
 let currentPhrase = 0;

@@ -8,10 +8,13 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
+    overflow: hidden; /* Prevent scrolling */
+    /*cursor: url('/assets/cursor.png'), auto;*/
+
 }
+
 
 #darkmode{
     visibility: hidden;
@@ -228,10 +231,13 @@ html, body {
     transition: transform 0.3s ease; /* Smooth animation */
     z-index: 99;
     cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* Similar to box-shadow */
 }
+
 
 .platform-icon:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Similar to box-shadow */
 }
 
 
@@ -255,6 +261,7 @@ html, body {
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow for typing effect */
     text-align: center; /* Ensure text is aligned */
+    filter: drop-shadow(0 0 10px rgb(0, 0, 0)); /* Similar to box-shadow */
 }
 
 
@@ -294,14 +301,15 @@ html, body {
     -webkit-appearance: slider-vertical; /* Webkit browsers */
     writing-mode: bt-lr; /* For Firefox, make it vertical */
     width: 3rem; /* Width of the track */
-    height: 10vh; /* Height of the slider */
+    height: 8vh; /* Height of the slider */
     margin: 0; /* Remove margin */
 }
 
 .wrapper {
     position: absolute;
+    overflow: visible; 
     top: 1vh; /* Slight padding from the top */
-    left: 0.1vw; /* Slight padding from the left */
+    left: 0vw; /* Slight padding from the left */
     height: 25vh; /* Reduced height */
     width: 2vw; /* Thin wrapper for the slider */
 
@@ -315,7 +323,7 @@ html, body {
         text-align: center;
         font-size: 2vh; /* Responsive font size */
         line-height: 1;
-        padding: 1vh 0; /* Adjusted spacing */
+        padding: 0.5vh 0; /* Adjusted spacing */
         pointer-events: none;
     }
 
@@ -329,62 +337,44 @@ html, body {
         bottom: 0; /* Align to the bottom of the wrapper */
     }
 }
-
 input[type="range"] {
     -webkit-appearance: none;
-    background-color: rgba(75, 75, 75, 0.6); /* Slightly opaque for subtle visibility */
+    appearance: none;
+    background-color: rgba(24, 24, 24, 0.6); /* Ensure a visible background */
     position: absolute;
-    left: 50%; /* Center horizontally in the wrapper */
-    top: 50%; /* Center vertically in the wrapper */
-    transform: translate(-50%, -50%) rotate(-90deg); /* Align and rotate to vertical */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
     margin: 0;
     padding: 0;
-    width: 25vh; /* Adjusted length to match wrapper height */
-    height: 1vw; /* Thinner slider track */
-    border-radius: 1vh; /* Rounded corners for smoothness */
+    width: 25vh;
+    height: 1vw;
+    border-radius: 1vh;
     overflow: hidden;
     cursor: row-resize;
+}
 
-    /* Remove step lines by using a consistent background */
-    background-image: none;
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: rgba(75, 75, 75, 0.6); /* Visible track */
+    border-radius: 1vh;
+}
 
-    &[step] {
-        background-color: transparent;
-        background-image: none; /* Remove step lines completely */
-    }
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    box-shadow: -25vh 0 0 25vh rgba(167, 167, 167, 0.3); /* Visible thumb */
+}
 
-    &::-webkit-slider-runnable-track {
-        background-color: rgba(75, 75, 75, 0.6); /* Solid track background */
-        border-radius: 1vh;
-    }
+input[type="range"]::-moz-range-track {
+    background-color: rgba(75, 75, 75, 0.6); /* Match track for Mozilla */
+    border-radius: 1vh;
+}
 
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 0; /* Invisible thumb width */
-        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
-    }
-
-    &::-moz-range-thumb {
-        border: none;
-        width: 0; /* Invisible thumb width */
-        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
-    }
-
-    &::-moz-range-track {
-        background-color: rgba(75, 75, 75, 0.6); /* Match background for Mozilla */
-        border-radius: 1vh;
-    }
-
-    &::-ms-track {
-        background: rgba(75, 75, 75, 0.6); /* Match background for Edge */
-        border-color: transparent; /* Hide any borders */
-        color: transparent; /* Hide step lines */
-    }
-
-    &::-ms-thumb {
-        width: 0; /* Invisible thumb */
-        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
-    }
+input[type="range"]::-ms-track {
+    background-color: rgba(75, 75, 75, 0.6);
+    border-radius: 1vh;
+    border-color: transparent;
+    color: transparent;
 }
 
 
@@ -421,3 +411,30 @@ input[type="range"] {
 }
 
 
+
+
+
+
+
+
+#smallScreenMessage {
+    display: none; /* Hide by default */
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+#content {
+    display: block; /* Show the main content by default */
+}
+
+/* When the screen is smaller than 600px */
+@media screen and (max-width: 600px) {
+    #smallScreenMessage {
+        display: block; /* Show the message */
+    }
+
+    #content {
+        display: none; /* Hide the main content */
+    }
+}
