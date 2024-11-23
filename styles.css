@@ -9,6 +9,8 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
 }
 
 #darkmode{
@@ -45,13 +47,16 @@ html, body {
 #backgroundVideo{
     position: absolute;
     left: 0vw;
-    height: 120vh;
+    top: -5vh;
+    height: 119vh;
     z-index: -1;
     filter: blur(0px);
     
     filter: saturate(1.5);
     filter: brightness(1);
 }
+
+
 
 #background{
     position: absolute;
@@ -60,27 +65,23 @@ html, body {
     z-index: -1;
 }
 
-#girl{
-    position: relative;
-    scale: 1.2;
-    left: 28.8vw;
-    top: 10.8vh;
-}
+
 
 #name {
     position: absolute;
     left: 4.5vw;
     top: 2vh;
-    height: 100vh;
-    font-size: 200px;
+    height: auto; /* Remove the fixed height */
+    font-size: 10vw; /* Use viewport width for font size */
     z-index: 2;
     color: white;
     font-style: italic;
     font-weight: bolder;
     font-family: consolas, sans-serif;
-
-    -webkit-text-stroke: 5px rgb(0, 0, 0);
+    -webkit-text-stroke: 0.25vw rgb(0, 0, 0); /* Adjust stroke size accordingly */
+    line-height: 1.2; /* Adjust line height to ensure letters don't overlap */
 }
+
 
 
 
@@ -156,6 +157,82 @@ html, body {
     -webkit-text-stroke: 2px rgb(0, 0, 0);
 }
 
+#pfpContainer {
+    position: absolute;
+    border-radius: 50%; /* Makes the container circular */
+    left: 50vw;
+    top: 30vh; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    height: 11vw; /* Set a uniform size */
+    width: 11vw; /* Match height to make it a circle */
+    overflow: hidden; /* Ensure image conforms to the circle */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+#pfp {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container proportionally */
+}
+
+
+
+
+
+#nameContainer{
+    position: absolute;
+    border-radius: 50%; /* Makes the container circular */
+    left: 50vw;
+    top: 50vh; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+
+    background: rgba( 57, 57, 57, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+
+
+
+
+#linksContainer {
+    display: flex; /* Enables flexbox for easy centering */
+    justify-content: center; /* Horizontally center the icons */
+    align-items: center; /* Vertically center the icons */
+    gap: 1rem; /* Add spacing between the icons */
+    position: absolute; /* Use absolute positioning for better placement */
+    top: 55vh; /* Moves the container down */
+    left: 50%; /* Center horizontally */
+    height: 2vh;
+    transform: translateX(-50%); /* Adjust for centering horizontally */
+    width: auto; /* Adjust width dynamically based on content */
+    padding: 2rem; /* Add padding inside the background */
+    text-align: center;
+
+    /* Background styling */
+    background: rgba(80, 80, 80, 0.562);
+    box-shadow: 0 8px 32px 0 rgba(193, 195, 219, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.301);
+}
+
+.platform-icon {
+    width: 3rem; /* Icon size */
+    height: 3rem; /* Keep icons square */
+    transition: transform 0.3s ease; /* Smooth animation */
+    z-index: 99;
+    cursor: pointer;
+}
+
+.platform-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
 
 
 
@@ -166,7 +243,161 @@ html, body {
 
 
 
+#typingContainer {
+    position: absolute;
+    left: 50%;
+    top: 48vh; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    width: 50vw; /* Set a responsive width */
+    font-family: 'Poppins', sans-serif;
+    font-size: 2vw;
+    color: white;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow for typing effect */
+    text-align: center; /* Ensure text is aligned */
+}
 
+
+#cursor {
+    display: inline-block;
+    color: white; /* Same color as the text */
+    animation: blink 0.6s steps(1, start) infinite; /* Sudden blinking effect */
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Fully hidden */
+    }
+}
+
+
+
+
+
+/* Basic container to center the slider */
+.slider-container {
+    position: absolute;
+    z-index: 2;
+    width: 3rem; /* Slider width */
+    height: 20rem; /* Slider height */
+}
+  
+/* Default vertical slider */
+
+
+.slider {
+    z-index: 2;
+    -webkit-appearance: slider-vertical; /* Webkit browsers */
+    writing-mode: bt-lr; /* For Firefox, make it vertical */
+    width: 3rem; /* Width of the track */
+    height: 10vh; /* Height of the slider */
+    margin: 0; /* Remove margin */
+}
+
+.wrapper {
+    position: absolute;
+    top: 1vh; /* Slight padding from the top */
+    left: 0.1vw; /* Slight padding from the left */
+    height: 25vh; /* Reduced height */
+    width: 2vw; /* Thin wrapper for the slider */
+
+    &::before,
+    &::after {
+        display: block;
+        position: absolute;
+        z-index: 10;
+        color: rgba(255, 255, 255, 0.8); /* Visible but subtle labels */
+        width: 100%;
+        text-align: center;
+        font-size: 2vh; /* Responsive font size */
+        line-height: 1;
+        padding: 1vh 0; /* Adjusted spacing */
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "+";
+        top: 0; /* Align to the top of the wrapper */
+    }
+
+    &::after {
+        content: "−";
+        bottom: 0; /* Align to the bottom of the wrapper */
+    }
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: rgba(75, 75, 75, 0.6); /* Slightly opaque for subtle visibility */
+    position: absolute;
+    left: 50%; /* Center horizontally in the wrapper */
+    top: 50%; /* Center vertically in the wrapper */
+    transform: translate(-50%, -50%) rotate(-90deg); /* Align and rotate to vertical */
+    margin: 0;
+    padding: 0;
+    width: 25vh; /* Adjusted length to match wrapper height */
+    height: 1vw; /* Thinner slider track */
+    border-radius: 1vh; /* Rounded corners for smoothness */
+    overflow: hidden;
+    cursor: row-resize;
+
+    /* Remove step lines by using a consistent background */
+    background-image: none;
+
+    &[step] {
+        background-color: transparent;
+        background-image: none; /* Remove step lines completely */
+    }
+
+    &::-webkit-slider-runnable-track {
+        background-color: rgba(75, 75, 75, 0.6); /* Solid track background */
+        border-radius: 1vh;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 0; /* Invisible thumb width */
+        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
+    }
+
+    &::-moz-range-thumb {
+        border: none;
+        width: 0; /* Invisible thumb width */
+        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
+    }
+
+    &::-moz-range-track {
+        background-color: rgba(75, 75, 75, 0.6); /* Match background for Mozilla */
+        border-radius: 1vh;
+    }
+
+    &::-ms-track {
+        background: rgba(75, 75, 75, 0.6); /* Match background for Edge */
+        border-color: transparent; /* Hide any borders */
+        color: transparent; /* Hide step lines */
+    }
+
+    &::-ms-thumb {
+        width: 0; /* Invisible thumb */
+        box-shadow: -25vh 0 0 25vh rgba(200, 200, 200, 0.3); /* Subtle thumb shadow */
+    }
+}
+
+
+
+
+  
+
+
+
+  
+  
+
+  
 
 
 
